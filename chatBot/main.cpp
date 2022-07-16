@@ -22,26 +22,25 @@ bool isReserved ( string word) {
        )
             return true;
             return false;
-
 }
 
 
-string getWord (string q , int startfrom) {
+string getWord (string question , int startfrom) {
 
     string word;
 
-    while ( !isspace(q[startfrom]) && startfrom < q.size() ) {
-            word += q[startfrom];
+    while ( !isspace(question[startfrom]) && startfrom < question.size() ) {
+            word += question[startfrom];
             startfrom++;
     }
 
     return word;
 }
 
-bool isExist (string word , string q) {
+bool isExist (string word , string question) {
 
-    for (int i = 0; i < q.size(); i++ ) {
-        string t = getWord (q , i );
+    for (int i = 0; i < question.size(); i++ ) {
+        string t = getWord (question , i );
         if ( t == word )
             return true;
         else
@@ -49,22 +48,19 @@ bool isExist (string word , string q) {
     }
     return false;
 }
-int  getIndexTheIndexOfAns ( string q , vector <string> qs) {
+int  getIndexTheIndexOfAns ( string question , vector <string> questions) {
 
-    for ( int i = 0; i < qs.size(); i++ ) {
-        for ( int j = 0; j < q.size(); j++ ) {
-            string word = getWord ( q , j );
-            if ( isExist( word , qs[i] ) && !isReserved( word) )
+    for ( int i = 0; i < questions.size(); i++ ) {
+        for ( int j = 0; j < question.size(); j++ ) {
+            string word = getWord ( question , j );
+            if ( isExist( word , questions[i] ) && !isReserved( word) )
                  return i;
             else
                 j += word.size() ;
 
         }
-
     }
-
     return -1;
-
 }
 
 int main() {
@@ -94,7 +90,6 @@ int main() {
 
     if ( input == "y" || input == "Y" ) {
 
-
         //Print the questions
         for ( auto question : questions){
             cout << question << '\n';
@@ -109,11 +104,10 @@ int main() {
          cout << "NOTE : ANY TIME YOU WANT TO EXIT ENTER --> E";
          cout << '\n';
 
-
          //Asking sisi
          cin.ignore();
 
-         while ( getline( cin , input ) && input != "E"  && input != "e" ) {
+    while ( getline( cin , input ) && input != "E"  && input != "e" ) {
 
          if ( input.size() ) {
 
