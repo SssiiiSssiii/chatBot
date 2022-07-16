@@ -48,7 +48,7 @@ bool isExist (string word , string question) {
     }
     return false;
 }
-int  getIndexTheIndexOfAns ( string question , vector <string> questions) {
+int  getTheIndexOfAnswer ( string question , vector <string> questions) {
 
     for ( int i = 0; i < questions.size(); i++ ) {
         for ( int j = 0; j < question.size(); j++ ) {
@@ -111,7 +111,7 @@ int main() {
 
          if ( input.size() ) {
 
-                int posOfAnswer = getIndexTheIndexOfAns ( input , questions );
+                int posOfAnswer = getTheIndexOfAnswer ( input , questions );
                 if ( posOfAnswer != -1 )
                     cout << answring[posOfAnswer] << '\n';
                 else {
